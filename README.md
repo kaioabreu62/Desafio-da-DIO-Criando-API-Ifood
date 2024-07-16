@@ -4,11 +4,6 @@ Java RESTful API criada para o desafio da DIO.
 # Diagrama de Classes
 ```mermaid
 classDiagram
-    class Login {
-        -String username
-        -String password
-    }
-    
     class User {
         -String name
         -String phone_number
@@ -17,8 +12,11 @@ classDiagram
         -String neighborhood
         -String address_complement
         -String city
+        -String email
+        -String username
+        -String password
     }
-    
+
     class Product {
         -String name
         -List~String~ additional_items
@@ -40,6 +38,11 @@ classDiagram
         -Double price
         -Double subtotal
     }
+
+    class Category {
+        -String name
+        -List~Product~ products
+    }
     
     class Total {
         -Double subtotal
@@ -57,11 +60,10 @@ classDiagram
         -String status
     }
     
-    Login "1" --> "1" User
     User "1" --> "1..*" ShoppingCart
-    ShoppingCart "1" --> "1" Total
-    ShoppingCart "1" --> "1..*" FoodOrder
+    ShoppingCart "1" *-- "1..*" FoodOrder
     FoodOrder "1" --> "1..*" Product
-    Total "1" --> "1" User
-    Total "1" --> "1" Payment
+    Category "1" *-- "1..*" Product
+    Total "1" *-- "1" User
+    Total "1" *-- "1" Payment
 ```

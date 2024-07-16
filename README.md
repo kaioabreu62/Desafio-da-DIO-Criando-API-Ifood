@@ -60,10 +60,16 @@ classDiagram
         -String status
     }
     
+    class Session {
+        -String username
+        -String password
+    }
+    
     User "1" --> "1..*" ShoppingCart
     ShoppingCart "1" *-- "1..*" FoodOrder
     FoodOrder "1" --> "1..*" Product
     Category "1" *-- "1..*" Product
     Total "1" *-- "1" User
     Total "1" *-- "1" Payment
+    Session --> User
 ```

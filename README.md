@@ -46,7 +46,7 @@ classDiagram
     
     class Total {
         -Double subtotal
-        -Double service_fee
+        -Double serviceFee
         -Double delivery_fee
         -Double discount_restaurant
         -Double incentives_ifood
